@@ -1,0 +1,69 @@
+{
+  "carriers": [
+    {
+      "code": "fedex",
+      "name": "FedEx",
+      "service": "International Priority",
+      "eta": "2024-04-30",
+      "patterns": ["\\b(\"?\\d{12,15}\"?)\\b"],
+      "webhook": "https://api.fedex.com/webhooks",
+      "mock_events": [
+        {"status": "Picked up", "description": "Shipment received by FedEx", "location": "Shenzhen, CN", "timestamp": "2024-04-20T08:25:00Z"},
+        {"status": "In transit", "description": "Departed FedEx hub", "location": "Anchorage, US", "timestamp": "2024-04-21T04:10:00Z"},
+        {"status": "Customs clearance", "description": "Customs released package", "location": "Memphis, US", "timestamp": "2024-04-22T16:35:00Z"},
+        {"status": "Out for delivery", "description": "Courier en route", "location": "Atlanta, US", "timestamp": "2024-04-23T13:05:00Z"}
+      ]
+    },
+    {
+      "code": "ups",
+      "name": "UPS",
+      "service": "Worldwide Saver",
+      "eta": "2024-05-02",
+      "patterns": ["1Z[0-9A-Z]{16}"],
+      "webhook": "https://onlinetools.ups.com/webhooks",
+      "mock_events": [
+        {"status": "Label created", "description": "Shipper transmitted information", "location": "Berlin, DE", "timestamp": "2024-04-18T07:15:00Z"},
+        {"status": "In transit", "description": "Arrived at facility", "location": "Koeln, DE", "timestamp": "2024-04-19T12:44:00Z"},
+        {"status": "In transit", "description": "Departed UPS hub", "location": "Philadelphia, US", "timestamp": "2024-04-20T23:02:00Z"},
+        {"status": "Delivered", "description": "Left at reception", "location": "New York, US", "timestamp": "2024-04-21T15:30:00Z"}
+      ]
+    },
+    {
+      "code": "dhl",
+      "name": "DHL Express",
+      "service": "Express Worldwide",
+      "eta": "2024-04-28",
+      "patterns": ["\\b\\d{10}\\b"],
+      "webhook": "https://api.dhl.com/track/webhooks",
+      "mock_events": [
+        {"status": "Shipment info received", "description": "Manifested", "location": "Tokyo, JP", "timestamp": "2024-04-19T02:00:00Z"},
+        {"status": "Processed", "description": "Processed at DHL facility", "location": "Hong Kong", "timestamp": "2024-04-20T14:18:00Z"},
+        {"status": "Arrived at facility", "description": "Arrived at sort facility", "location": "Cincinnati, US", "timestamp": "2024-04-21T22:40:00Z"}
+      ]
+    },
+    {
+      "code": "usps",
+      "name": "USPS",
+      "service": "Priority Mail International",
+      "eta": "2024-05-05",
+      "patterns": ["\\b([A-Z]{2}[0-9]{9}US)\\b"],
+      "webhook": "https://api.usps.com/track/webhooks",
+      "mock_events": [
+        {"status": "Accepted", "description": "Accepted at USPS origin facility", "location": "Miami, US", "timestamp": "2024-04-17T18:10:00Z"},
+        {"status": "Processed through facility", "description": "ISC New York", "location": "Jamaica, US", "timestamp": "2024-04-18T22:11:00Z"}
+      ]
+    },
+    {
+      "code": "correios",
+      "name": "Correios Brasil",
+      "service": "Sedex",
+      "eta": "2024-04-27",
+      "patterns": ["\\b([A-Z]{2}[0-9]{9}BR)\\b"],
+      "webhook": "https://api.correios.com.br/track/webhooks",
+      "mock_events": [
+        {"status": "Postado", "description": "Objeto postado", "location": "São Paulo, BR", "timestamp": "2024-04-19T15:50:00Z"},
+        {"status": "Encaminhado", "description": "Encaminhado para unidade de tratamento", "location": "Campinas, BR", "timestamp": "2024-04-20T08:20:00Z"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+#tracking-result .event-item {
+    border-left: 4px solid #0d6efd;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+#tracking-result .event-item:last-child {
+    border-color: #22c55e;
+}
